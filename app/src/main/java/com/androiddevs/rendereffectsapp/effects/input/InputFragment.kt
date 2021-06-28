@@ -48,6 +48,7 @@ class InputFragment : Fragment() {
             binding.imageViewTest.setRenderEffect(it)
         }.launchIn(viewModel.viewModelScope)
         // endregion
+
         // region Blur&Bitmap Input Effect
         binding.switchBlurBitmap.bind(viewModel.blurBitmap, viewModel::setBlurBitmap)
         viewModel.blurBitmapEffectFlow.onEach {

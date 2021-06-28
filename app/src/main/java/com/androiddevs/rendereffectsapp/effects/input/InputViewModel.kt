@@ -73,7 +73,6 @@ class InputViewModel(application: Application) : AndroidViewModel(application) {
     fun setOffsetY(newValue: Float) {
         _offsetY.value = newValue
     }
-
     // endregion
 
     @RequiresApi(31)

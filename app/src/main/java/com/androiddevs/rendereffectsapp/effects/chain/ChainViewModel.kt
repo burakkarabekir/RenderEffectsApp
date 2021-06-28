@@ -181,7 +181,6 @@ class ChainViewModel(application: Application) : AndroidViewModel(application) {
             )
         } else null
     }.stateIn(viewModelScope, SharingStarted.Eagerly, null)
-
     // endregion
 
     // region Blend Mode Effect

@@ -1,8 +1,6 @@
 package com.androiddevs.rendereffectsapp.effects.single
 
-import android.graphics.BlendMode
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
 import com.androiddevs.rendereffectsapp.databinding.FragmentSingleBinding
-import com.google.android.material.chip.Chip
 import com.google.android.material.slider.Slider
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow

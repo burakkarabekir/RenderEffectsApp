@@ -1,6 +1,5 @@
 package com.androiddevs.rendereffectsapp.main
 
-import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,6 @@ import androidx.navigation.fragment.findNavController
 import com.androiddevs.rendereffectsapp.R
 import com.androiddevs.rendereffectsapp.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
-import jp.wasabeef.blurry.Blurry
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {

@@ -98,15 +98,19 @@ class ChainViewModel(application: Application) : AndroidViewModel(application) {
     val colorFilterEffectFlow =
         combine(_valueR, _valueG, _valueB, _colorFilterBitmap) { r, g, b, isFilterEnabled ->
             if (isFilterEnabled) {
-                RenderEffect.createChainEffect(RenderEffect.createColorFilterEffect(
-                    BlendModeColorFilter(
-                        Color.rgb(r, g, b),
-                        BlendMode.COLOR
+                RenderEffect.createChainEffect(
+                    RenderEffect.createColorFilterEffect(
+                        BlendModeColorFilter(
+                            Color.rgb(r, g, b),
+                            BlendMode.COLOR
+                        )
+                    ), RenderEffect.createBitmapEffect(
+                        BitmapFactory.decodeResource(
+                            application.resources,
+                            R.drawable.img_test
+                        )
                     )
-                ), RenderEffect.createBitmapEffect(
-                    BitmapFactory.decodeResource(
-                        application.resources,
-                        R.drawable.img_test)))
+                )
             } else null
         }.stateIn(viewModelScope, SharingStarted.Eagerly, null)
 
@@ -145,28 +149,35 @@ class ChainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     @RequiresApi(31)
-    val offsetBitmapEffectFlow = combine(_offsetX, _offsetY, _offsetBitmap) { x, y, isOffsetEnabled ->
-        if (isOffsetEnabled) {
-            RenderEffect.createChainEffect(
-                RenderEffect.createOffsetEffect(x, y),
-                RenderEffect.createBitmapEffect(
-                    BitmapFactory.decodeResource(
-                        application.resources,
-                        R.drawable.img_test
+    val offsetBitmapEffectFlow =
+        combine(_offsetX, _offsetY, _offsetBitmap) { x, y, isOffsetEnabled ->
+            if (isOffsetEnabled) {
+                RenderEffect.createChainEffect(
+                    RenderEffect.createOffsetEffect(x, y),
+                    RenderEffect.createBitmapEffect(
+                        BitmapFactory.decodeResource(
+                            application.resources,
+                            R.drawable.img_test
+                        )
                     )
                 )
-            )
-        } else null
-    }.stateIn(viewModelScope, SharingStarted.Eagerly, null)
+            } else null
+        }.stateIn(viewModelScope, SharingStarted.Eagerly, null)
     // endregion
 
     // region Blur Offset Effect
 
-    val blurOffsetEffectFlow = combine(_valueX, _valueY, _offsetX, _offsetY, _blurOffset) { valueX, valueY, x, y, isFilterEnabled ->
+    val blurOffsetEffectFlow = combine(
+        _valueX,
+        _valueY,
+        _offsetX,
+        _offsetY,
+        _blurOffset
+    ) { valueX, valueY, x, y, isFilterEnabled ->
         if (isFilterEnabled) {
             RenderEffect.createChainEffect(
                 RenderEffect.createBlurEffect(valueX, valueY, Shader.TileMode.DECAL),
-                RenderEffect.createOffsetEffect(x,y)
+                RenderEffect.createOffsetEffect(x, y)
             )
         } else null
     }.stateIn(viewModelScope, SharingStarted.Eagerly, null)
@@ -187,11 +198,17 @@ class ChainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     @RequiresApi(31)
-    val blendModeEffectFlow = combine(_valueX, _valueY, _offsetX, _offsetY, _blendMode) { x, y, offsetX, offsetY, isFilterEnabled ->
+    val blendModeEffectFlow = combine(
+        _valueX,
+        _valueY,
+        _offsetX,
+        _offsetY,
+        _blendMode
+    ) { x, y, offsetX, offsetY, isFilterEnabled ->
         if (isFilterEnabled) {
             RenderEffect.createBlendModeEffect(
-                RenderEffect.createBlurEffect(x,y,Shader.TileMode.DECAL),
-                RenderEffect.createOffsetEffect(offsetX,offsetY),
+                RenderEffect.createBlurEffect(x, y, Shader.TileMode.DECAL),
+                RenderEffect.createOffsetEffect(offsetX, offsetY),
                 BlendMode.values().random()
             )
         } else null

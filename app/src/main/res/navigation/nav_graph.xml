@@ -9,7 +9,7 @@
         android:id="@+id/mainFragment"
         android:name="com.androiddevs.rendereffectsapp.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_singleFragment"
             app:destination="@id/singleFragment" />

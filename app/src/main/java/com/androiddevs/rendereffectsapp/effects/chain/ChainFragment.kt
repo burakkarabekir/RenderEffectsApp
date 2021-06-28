@@ -1,9 +1,6 @@
 package com.androiddevs.rendereffectsapp.effects.chain
 
-import android.graphics.BlendMode
-import android.os.Build
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,10 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
-import com.androiddevs.rendereffectsapp.R
 import com.androiddevs.rendereffectsapp.databinding.FragmentChainBinding
-import com.google.android.material.chip.Chip
-import com.google.android.material.chip.ChipGroup
 import com.google.android.material.slider.Slider
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow
@@ -54,7 +48,10 @@ class ChainFragment : Fragment() {
         binding.sliderRed.bind(viewModel.valueR, viewModel::setValueR)
         binding.sliderGreen.bind(viewModel.valueG, viewModel::setValueG)
         binding.sliderBlue.bind(viewModel.valueB, viewModel::setValueB)
-        binding.switchColorFilterBitmap.bind(viewModel.colorFilterBitmap, viewModel::setColorFilterBitmap)
+        binding.switchColorFilterBitmap.bind(
+            viewModel.colorFilterBitmap,
+            viewModel::setColorFilterBitmap
+        )
         viewModel.colorFilterEffectFlow.onEach {
             binding.groupColorFilter.visibility = if (it != null) View.VISIBLE else View.GONE
             binding.imageViewTest.setRenderEffect(it)

@@ -9,9 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
-import com.androiddevs.rendereffectsapp.databinding.FragmentChainBinding
 import com.androiddevs.rendereffectsapp.databinding.FragmentInputBinding
-import com.androiddevs.rendereffectsapp.effects.chain.ChainViewModel
 import com.google.android.material.slider.Slider
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow
@@ -19,7 +17,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
-class InputFragment: Fragment() {
+class InputFragment : Fragment() {
     private lateinit var binding: FragmentInputBinding
     private val viewModel: InputViewModel by viewModels()
 
@@ -50,7 +48,7 @@ class InputFragment: Fragment() {
             binding.imageViewTest.setRenderEffect(it)
         }.launchIn(viewModel.viewModelScope)
         // endregion
-    // region Blur&Bitmap Input Effect
+        // region Blur&Bitmap Input Effect
         binding.switchBlurBitmap.bind(viewModel.blurBitmap, viewModel::setBlurBitmap)
         viewModel.blurBitmapEffectFlow.onEach {
             binding.groupBlur.visibility = if (it != null) View.VISIBLE else View.GONE

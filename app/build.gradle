@@ -57,11 +57,10 @@ dependencies {
 
     // Hilt
     implementation 'com.google.dagger:hilt-android:2.37'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     kapt 'com.google.dagger:hilt-compiler:2.37'
 
-    // Blurry
-    implementation 'jp.wasabeef:blurry:4.0.0'
+    // Navigation Fragment
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

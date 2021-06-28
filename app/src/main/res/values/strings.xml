@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">RenderEffectsApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_blur">Blur</string>
+    <string name="text_blend_mode">Blend Mode</string>
+    <string name="text_color_filter">Color Filter</string>
+    <string name="text_offset">Offset</string>
+    <string name="text_options">Options</string>
+    <string name="text_effects">Effects</string>
+    <string name="button_single_effects">Single Effects</string>
+    <string name="button_input_effects">Input Effects</string>
+    <string name="button_chain_effects">Chain Effects</string>
+    <string name="blur_amp_bitmap"><![CDATA[Blur & Bitmap]]></string>
+    <string name="blur_amp_offset"><![CDATA[Blur & Offset]]></string>
+    <string name="offset_amp_bitmap"><![CDATA[Offset & Bitmap]]></string>
+    <string name="color_filter_amp_bitmap"><![CDATA[Color Filter & Bitmap]]></string>
+</resources>

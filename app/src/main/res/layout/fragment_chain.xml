@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/image_view_test"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_test"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".6" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline_horizontal">
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/constraintLayout2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_effects">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_blur_bitmap"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:text="@string/blur_amp_bitmap" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_blur_offset"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:text="@string/blur_amp_offset" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_blend"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:text="@string/text_blend_mode" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_offset_bitmap"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:text="@string/offset_amp_bitmap" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_color_filter_bitmap"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:text="@string/color_filter_amp_bitmap" />
+            </LinearLayout>
+        </ScrollView>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_valueX"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:valueFrom="0"
+                android:valueTo="100"
+                app:layout_constraintBottom_toTopOf="@+id/slider_valueY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_options"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_valueY"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:valueFrom="0"
+                android:valueTo="100"
+                app:layout_constraintBottom_toTopOf="@+id/slider_offsetX"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/slider_valueX" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_blur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="slider_valueX,slider_valueY"
+                tools:visibility="visible" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_red"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:valueFrom="0"
+                android:valueTo="255"
+                app:layout_constraintBottom_toTopOf="@+id/slider_green"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_view_options"
+                app:thumbColor="@color/spinner_red_thumb"
+                app:trackColorActive="@color/spinner_red_track_active"
+                app:trackColorInactive="@color/spinner_red_track_inactive" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_green"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:valueFrom="0"
+                android:valueTo="255"
+                app:layout_constraintBottom_toTopOf="@+id/slider_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/slider_red"
+                app:thumbColor="@color/spinner_green_thumb"
+                app:trackColorActive="@color/spinner_green_track_active"
+                app:trackColorInactive="@color/spinner_green_track_inactive" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_blue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:valueFrom="0"
+                android:valueTo="255"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/slider_green"
+                app:thumbColor="@color/spinner_blue_thumb"
+                app:trackColorActive="@color/spinner_blue_track_active"
+                app:trackColorInactive="@color/spinner_blue_track_inactive" />
+
+            <View
+                android:id="@+id/view_color"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="@id/text_view_options"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_color_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="slider_red,slider_green,slider_blue, view_color"
+                tools:visibility="gone" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_offsetX"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:valueFrom="-1000"
+                android:valueTo="1000"
+                app:layout_constraintBottom_toTopOf="@+id/slider_offsetY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/slider_valueY"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_offsetY"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:valueFrom="-1000"
+                android:valueTo="1000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/slider_offsetX" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_offset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="slider_offsetX,slider_offsetY"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/text_view_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/text_options"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".4" />
+
+        <TextView
+            android:id="@+id/text_view_effects"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/text_effects"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

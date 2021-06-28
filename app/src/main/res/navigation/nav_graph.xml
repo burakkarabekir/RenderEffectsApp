@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.androiddevs.rendereffectsapp.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_singleFragment"
+            app:destination="@id/singleFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_chainFragment"
+            app:destination="@id/chainFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_inputFragment"
+            app:destination="@id/inputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singleFragment"
+        android:name="com.androiddevs.rendereffectsapp.effects.single.SingleFragment"
+        android:label="SingleFragment" />
+    <fragment
+        android:id="@+id/inputFragment"
+        android:name="com.androiddevs.rendereffectsapp.effects.input.InputFragment"
+        android:label="InputFragment" />
+
+    <fragment
+        android:id="@+id/chainFragment"
+        android:name="com.androiddevs.rendereffectsapp.effects.chain.ChainFragment"
+        android:label="ChainFragment" />
+</navigation>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#2196F3</color>
+    <color name="primary_dark">#1976D2</color>
+    <color name="primary_light">#BBDEFB</color>
+    <color name="accent">#FFC107</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+
+    <color name="spinner_red_track_active">#ff6659</color>
+    <color name="spinner_red_track_inactive">#ffebee</color>
+    <color name="spinner_red_thumb">#d32f2f</color>
+
+    <color name="spinner_green_track_active">#6abf69</color>
+    <color name="spinner_green_track_inactive">#e8f5e9</color>
+    <color name="spinner_green_thumb">#388e3c</color>
+
+    <color name="spinner_blue_track_active">#63a4ff</color>
+    <color name="spinner_blue_track_inactive">#e3f2fd</color>
+    <color name="spinner_blue_thumb">#1976d2</color>
+</resources>
